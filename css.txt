@@ -1,0 +1,27 @@
+/*css*/
+1.在IE7及以上版本的IE浏览器、谷歌、火狐、欧朋等浏览器中width的值：width=内容的宽度
+2.在IE6及以下版本的IE浏览器，width的值=内容宽度+内边距+边框宽度+外边距
+
+清理浮动
+1, 在使用css方法时，结合使用：after伪类和内容声明在指定的现有内容的末尾添加新的内容。对生成的内容进行清理：
+.clear:after{
+	content:".";
+	height:0px;
+	visibility:hidden;
+	display:block;
+	clear:both;
+}
+透明度
+1.css不透明度的主要问题是：除了对背景生效外，应用它的元素的内容也会继承它解决该问题的方法：RGBa
+R代表红色，G代表绿色，B代表蓝色，a代表透明度
+eg：.b{
+background-color:rgba(0,0,0,0.5);
+}
+2.png文件格式的优点之一是：它支持alpha透明度，（IE6不直接支持png的透明度，ie7及以上的均支持）
+①在IE6中支持png透明度的方法是使用专用的AlphaImageLoader过滤器
+即：filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="pic.png",sizingMethod="crop");
+②使用IE PNG fix技术，下载合适的.htc文件并在IE6专用的样式表中引用它
+eg:img{behavior:url(iepengfix.htc);}
+
+图像替换（FIR、Phark、sIFR）
+建议不要在大型项目中使用sIFR，只在个人网站上使用它
